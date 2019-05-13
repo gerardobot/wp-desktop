@@ -281,9 +281,6 @@ jobs:
           command: |
                   source $HOME/.nvm/nvm.sh
                   nvm use
-                  # This is a temp path, to be removed when electron-builder supports hardened runtime
-                  patch ./node_modules/app-builder-lib/out/macPackager.js ./resource/macos/builder_temp_fix.patch
-                  patch -R ./node_modules/app-builder-lib/scheme.json ./resource/macos/builder_temp_fix_2.patch
                   make package BUILD_PLATFORM=l
       - run:
           name: Release cleanup
@@ -326,9 +323,6 @@ jobs:
                   set +e
                   source $HOME/.nvm/nvm.sh
                   nvm use
-                  # This is a temp path, to be removed when electron-builder supports hardened runtime
-                  patch ./node_modules/app-builder-lib/out/macPackager.js ./resource/macos/builder_temp_fix.patch
-                  patch -R ./node_modules/app-builder-lib/scheme.json ./resource/macos/builder_temp_fix_2.patch
                   make package BUILD_PLATFORM=w
       - run:
           name: Release cleanup
@@ -373,9 +367,6 @@ jobs:
                   set +e
                   source $HOME/.nvm/nvm.sh
                   nvm use
-                  # This is a temp path, to be removed when electron-builder supports hardened runtime
-                  patch ./node_modules/app-builder-lib/out/macPackager.js ./resource/macos/builder_temp_fix.patch
-                  patch -R ./node_modules/app-builder-lib/scheme.json ./resource/macos/builder_temp_fix_2.patch
                   make package BUILD_PLATFORM=m
       # Temporarily disable the test
       # TODO: Fixme – seems to be an issue with `portscanner`
